@@ -1,8 +1,15 @@
 #!/usr/bin/python3
 import discord
 from textFun import getDesQuote
+import sys, os
 
-token = 'ODkyMDIyNjYwMzg3NzMzNTI1.YVG21w.tXf_RK7olFnMdzNjHmHCGX3c2Xg'
+def getToken():
+    with open('/home/pi/token.txt','r') as tfile:
+        token = tfile.read()
+        
+    return token
+
+token = getToken()
 
 client = discord.Client()
 
