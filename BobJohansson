@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+import requests
+
+def getDesQuote():
+    url = 'https://demotivational-quotes-api.herokuapp.com/api/quotes/random'
+    r = requests.get(url)
+
+    message = {}
+    message['message'] = r.json()['quote']
+    message['author'] = r.json()['author']
+        
+    return message
