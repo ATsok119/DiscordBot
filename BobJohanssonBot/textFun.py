@@ -19,3 +19,11 @@ def getDesQuote():
     message['author'] = r.json()['author']
         
     return message 
+    
+def getInsult():
+    url = 'https://evilinsult.com/generate_insult.php?lang=en&type=json'
+    r = requests.get(url)
+
+    message = r.json()['insult'] 
+        
+    return message 

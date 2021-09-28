@@ -58,7 +58,10 @@ async def play(ctx, url : str):
             os.rename(file, "song.mp3")
     voice.play(discord.FFmpegPCMAudio("song.mp3"))
     
-
+@client.command()
+async def insult(ctx):
+    insult = getInsult()
+    await ctx.send(insult)
 
 @client.command()
 async def inspire(ctx):
@@ -85,5 +88,14 @@ async def pause(ctx):
         voice.pause()
     else:
         await ctx.send("Currently no audio is playing.")
+        
+        
+@client.command()
+async def resume(ctx):
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    if voice.is_paused():
+        voice.resume()
+    else:
+        await ctx.send("The audio is not paused.")
     
 client.run(token)   
