@@ -1,0 +1,3 @@
+
+Atsok;perseption;1d20+11
+Atsok;initiative;1d20+11+1d2
